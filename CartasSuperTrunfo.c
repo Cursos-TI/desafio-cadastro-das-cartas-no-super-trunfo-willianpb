@@ -23,20 +23,34 @@ int main() {
     printf("Digite o nome do País: ");
     scanf("%s", &nomePais);
 
-    printf("\nDigite o nome do Estado: ");
+    printf("Digite o nome do Estado: ");
     scanf("%s", &nomeEstado);
 
-    printf("\nDigite o nome do Código: ");
+    printf("Digite o nome do Código: ");
     scanf("%s", &codigoCidade);
 
-    printf("\nDigite a quantidade Populacional: ");
+    printf("Digite a quantidade Populacional: ");
     scanf("%u", &populacao);
 
-    printf("\nDigite a quantidade de Pontos Turísticos: ");
+    printf("Digite a quantidade de Pontos Turísticos: ");
     scanf("%u", &pontosTuristicos);
 
-    printf("\nDigite a Área: ");
+    printf("Digite o PIB: ");
+    scanf("%f", &pib);
+
+    printf("Digite a Área: ");
     scanf("%f", &area);
+
+    float pibPerCapita = 0;
+    float densidade = 0;
+
+    if(area > 0) {
+        densidade = populacao / area;
+    }
+
+    if(populacao > 0){
+        pibPerCapita = pib / populacao;
+    }
 
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
@@ -47,7 +61,11 @@ int main() {
     printf("\nCódigo: %s", codigoCidade);
     printf("\nPopulação: %d", populacao);
     printf("\nPontos Turísticos: %d", pontosTuristicos);
-    printf("\nÁrea: %.2f\n", area);
+    printf("\nÁrea: %.2f", area);
+    printf("\nPIB: %.2f", pib);
+    printf("\nDensidade Populacional: %.2f", densidade);
+    printf("\nPIB per Capita: %.2f", pibPerCapita);
+    printf("\n****************\n");
 
     return 0;
 }
