@@ -22,8 +22,8 @@ typedef struct
 void PreencheCarta(Card * card);
 void PrintCarta(Card * card);
 void VerificaVencedora(Card * card1, Card * card2);
-float CalularSuperPoder(Card * card);
-void CalularPonto(int * ponto1, int * ponto2, float valor1, float valor2);
+float CalcularSuperPoder(Card * card);
+void CalcularPonto(int * ponto1, int * ponto2, float valor1, float valor2);
 
 void PreencheCarta(Card * card) 
 {
@@ -81,7 +81,7 @@ void PrintCarta(Card * card1)
     printf("\nPIB per Capita: %.2f", card1->pibPerCapita);
 }
 
-float CalularSuperPoder(Card * card)
+float CalcularSuperPoder(Card * card)
 {
     return (float)card->area 
         + card->densidade 
@@ -91,7 +91,7 @@ float CalularSuperPoder(Card * card)
         + card->populacao;
 }
 
-void CalularPonto(int * ponto1, int * ponto2, float valor1, float valor2)
+void CalcularPonto(int * ponto1, int * ponto2, float valor1, float valor2)
 {
     if(valor1 > valor2)
     {
@@ -117,11 +117,11 @@ void VerificaVencedora(Card * card1, Card * card2)
         pontosCarta1++;       
     }
 
-    CalularPonto(&pontosCarta1, &pontosCarta2, card1->area, card2->area);
-    CalularPonto(&pontosCarta1, &pontosCarta2, card1->pib, card2->pib);
-    CalularPonto(&pontosCarta1, &pontosCarta2, card1->pibPerCapita, card2->pibPerCapita);
-    CalularPonto(&pontosCarta1, &pontosCarta2, (float)card1->pontosTuristicos, (float)card2->pontosTuristicos);
-    CalularPonto(&pontosCarta1, &pontosCarta2, (float)card1->populacao, (float)card2->populacao);
+    CalcularPonto(&pontosCarta1, &pontosCarta2, card1->area, card2->area);
+    CalcularPonto(&pontosCarta1, &pontosCarta2, card1->pib, card2->pib);
+    CalcularPonto(&pontosCarta1, &pontosCarta2, card1->pibPerCapita, card2->pibPerCapita);
+    CalcularPonto(&pontosCarta1, &pontosCarta2, (float)card1->pontosTuristicos, (float)card2->pontosTuristicos);
+    CalcularPonto(&pontosCarta1, &pontosCarta2, (float)card1->populacao, (float)card2->populacao);
 
     if(pontosCarta1 > pontosCarta2)
     {
